@@ -1,10 +1,12 @@
 require './config'
+require 'net/http'
 
 class Request
   attr_accessor :get_path  
 
   def initialize(path,params)
-    build(path,params) 
+    build(path,params)
+    puts 'initialized request'
   end
 
   def build(path,params)
@@ -15,7 +17,11 @@ class Request
         @get_path << "#{k}=#{v}&"
       end
     end
-    puts "get_path: #{@get_path}"
+  end
+
+  def send()
+    uri = URI(@get_path)
+    response = Net::HTTP.get(uri)
   end
 
 end
