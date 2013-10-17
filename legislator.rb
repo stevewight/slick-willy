@@ -13,7 +13,6 @@ class Legislator
     @party = item['party']
     @state = item['state']
     @chamber = item['chamber']
-    puts "initialized legislator #{@last_name}"  
   end
 
 end

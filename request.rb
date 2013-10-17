@@ -6,7 +6,6 @@ class Request
 
   def initialize(path,params)
     build(path,params)
-    puts 'initialized request'
   end
 
   def build(path,params)

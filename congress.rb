@@ -6,10 +6,9 @@ class Congress
 
   def initialize()
     @legislators = []
-    puts 'initialized congress'
   end
 
-  def get_all()
+  def load_legislators()
     params = {'apikey'=> API_KEY, 'per_page' => 'all'}
     request = Request.new('legislators',params)
     response = request.send()

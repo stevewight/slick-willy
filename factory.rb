@@ -7,7 +7,6 @@ class Factory
 
   def initialize()
     @list = []
-    puts 'initialized factory'
   end
 
   def legislators(response)
