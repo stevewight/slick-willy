@@ -32,4 +32,17 @@ class Analysis
     {'dem' => dem,'rep' => rep,'ind' => ind}
   end
 
+  def chamber(legislators)
+    senate = 0
+    house = 0
+    legislators.each do |legislator|
+      if legislator['chamber'] == 'house'
+        house += 1
+      elsif legislator['chamber'] == 'senate'
+        senate += 1
+      end
+    end
+    {'house'=> house, 'senate'=>senate}
+  end 
+
 end
