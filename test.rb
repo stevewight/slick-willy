@@ -21,3 +21,7 @@ chambers = analysis.chamber(congress.legislators)
 puts "Chambers:"
 puts "---->#{chambers['senate']} in senate"
 puts "---->#{chambers['house']} in house"
+
+age = analysis.age(congress.legislators)
+
+

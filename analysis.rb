@@ -1,3 +1,5 @@
+require 'date'
+ 
 class Analysis
 
   def initialize()
@@ -44,5 +46,15 @@ class Analysis
     end
     {'house'=> house, 'senate'=>senate}
   end 
+
+  def age(legislators)
+    age_format = '%Y-%m-%d'
+    legislators.each do |legislator|
+      bday = DateTime.strptime(legislator['birthday'],age_format)
+      birthday = Date.parse(legislator['birthday'])
+      puts "birfday class: #{birthday.class}"
+      puts "birfday obj: #{birthday}"
+    end
+  end
 
 end
