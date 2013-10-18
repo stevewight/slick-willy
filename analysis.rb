@@ -49,12 +49,25 @@ class Analysis
 
   def age(legislators)
     age_format = '%Y-%m-%d'
+    time = Time.now
+    young = 0 #39 and under
+    old = 0 #40-54
+    real_old = 0 #55-70
+    crazy_old = 0 #71 and over
     legislators.each do |legislator|
       bday = DateTime.strptime(legislator['birthday'],age_format)
       birthday = Date.parse(legislator['birthday'])
-      puts "birfday class: #{birthday.class}"
-      puts "birfday obj: #{birthday}"
+      age = time.year - birthday.year
+      if age < 36
+        young += 1
+      elsif age < 54
+	old += 1
+      elsif age < 70
+        real_old += 1
+      else
+        crazy_old += 1
+      end
     end
+    {'young' => young, 'old' => old, 'real_old' => real_old, 'crazy_old' => crazy_old}
   end
-
 end

@@ -23,5 +23,10 @@ puts "---->#{chambers['senate']} in senate"
 puts "---->#{chambers['house']} in house"
 
 age = analysis.age(congress.legislators)
+puts "Age:"
+puts "---->#{age['young']} [under 36]"
+puts "---->#{age['old']} [36-->54]"
+puts "---->#{age['real_old']} [55-->69]"
+puts "---->#{age['crazy_old']} [70+]"
 
 
