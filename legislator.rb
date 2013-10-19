@@ -5,6 +5,7 @@ class Legislator
   attr_accessor :gender
   attr_accessor :party
   attr_accessor :state
+  attr_accessor :state_name
   attr_accessor :chamber
   attr_accessor :birthday
 
@@ -15,6 +16,7 @@ class Legislator
     @gender = item['gender']
     @party = item['party']
     @state = item['state']
+    @state_name = item['state_name']
     @chamber = item['chamber']
     @birthday = item['birthday']
   end

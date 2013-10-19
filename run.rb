@@ -29,4 +29,8 @@ puts "---->#{age['old']} [36-->54]"
 puts "---->#{age['real_old']} [55-->69]"
 puts "---->#{age['crazy_old']} [70+]"
 
-
+states = analysis.states(congress.legislators)
+puts "State:"
+states.each do |k,v|
+  puts "#{k} = #{v} "
+end

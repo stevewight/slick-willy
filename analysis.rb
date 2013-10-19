@@ -70,4 +70,17 @@ class Analysis
     end
     {'young' => young, 'old' => old, 'real_old' => real_old, 'crazy_old' => crazy_old}
   end
+
+  def states(legislators)
+    state_set = {}
+    legislators.each do |legislator|
+      if state_set.has_key?(legislator['state'])
+        state_set[legislator['state']] += 1
+      else
+        state_set[legislator['state']] = 0
+      end
+    end
+    state_set
+  end
+
 end
