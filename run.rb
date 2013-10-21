@@ -2,8 +2,11 @@ require './congress'
 require './analysis'
 
 congress = Congress.new
-congress.load_legislators()
+zip_code = '93035'
+#congress.load_legislators()
+congress.load_legislators_zip(zip_code)
 puts "Legislators Count: #{congress.legislators.size}"
+puts "for zip code: #{zip_code}"
 
 analysis = Analysis.new
 genders = analysis.gender(congress.legislators)

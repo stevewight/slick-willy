@@ -16,4 +16,13 @@ class Congress
     @legislators = factory.legislators(response)
   end
 
+  def load_legislators_zip(zip_code)
+    params = {'apikey'=> API_KEY, 'per_page' => 'all'}
+    params['zip'] = zip_code
+    request = Request.new('legislators/locate',params)
+    response = request.send()
+    factory = Factory.new()
+    @legislators = factory.legislators(response)
+  end
+
 end
