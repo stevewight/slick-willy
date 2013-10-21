@@ -9,7 +9,7 @@ class Congress
   end
 
   def load_legislators()
-    params = {'apikey'=> API_KEY, 'per_page' => 'all'}
+    params = {'per_page' => 'all'}
     request = Request.new('legislators',params)
     response = request.send()
     factory = Factory.new()
@@ -17,7 +17,7 @@ class Congress
   end
 
   def load_legislators_zip(zip_code)
-    params = {'apikey'=> API_KEY, 'per_page' => 'all'}
+    params = {'per_page' => 'all'}
     params['zip'] = zip_code
     request = Request.new('legislators/locate',params)
     response = request.send()
@@ -26,7 +26,7 @@ class Congress
   end
 
   def load_legislators_location(location)
-    params = {'apikey'=> API_KEY, 'per_page' => 'all'}
+    params = {'per_page' => 'all'}
     params['latitude'] = location['latitude']
     params['longitude'] = location['longitude']
     request = Request.new('legislators/locate',params)

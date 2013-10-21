@@ -5,6 +5,7 @@ class Request
   attr_accessor :get_path  
 
   def initialize(path,params)
+    params['apikey'] = API_KEY
     build(path,params)
   end
 
