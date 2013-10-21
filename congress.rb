@@ -25,4 +25,14 @@ class Congress
     @legislators = factory.legislators(response)
   end
 
+  def load_legislators_location(location)
+    params = {'apikey'=> API_KEY, 'per_page' => 'all'}
+    params['latitude'] = location['latitude']
+    params['longitude'] = location['longitude']
+    request = Request.new('legislators/locate',params)
+    response = request.send()
+    factory = Factory.new()
+    @legislators = factory.legislators(response)
+  end
+
 end

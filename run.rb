@@ -2,11 +2,15 @@ require './congress'
 require './analysis'
 
 congress = Congress.new
-zip_code = '93035'
+location = {"latitude"=>"37.6860","longitude"=>"-122.402"}
+#zip_code = '93035'
 #congress.load_legislators()
-congress.load_legislators_zip(zip_code)
+#congress.load_legislators_zip(zip_code)
+congress.load_legislators_location(location)
 puts "Legislators Count: #{congress.legislators.size}"
-puts "for zip code: #{zip_code}"
+#puts "for zip code: #{zip_code}"
+puts "for latitude:#{location['latitude']}"
+puts "    longitude:#{location['longitude']}"
 
 analysis = Analysis.new
 genders = analysis.gender(congress.legislators)
