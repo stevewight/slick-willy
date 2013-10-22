@@ -3,9 +3,11 @@ require './factory'
 
 class Congress
   attr_accessor :legislators
+  attr_accessor :bills
 
   def initialize()
     @legislators = []
+    @bills = []
   end
 
   def load_legislators()
@@ -33,6 +35,16 @@ class Congress
     response = request.send()
     factory = Factory.new()
     @legislators = factory.legislators(response)
+  end
+
+  #loads active bills orderd by recent activity
+  def load_bills()
+    params = {'history.active' => true}
+    params['order'] = 'last_action_at'
+    request = Request.new('bills',params)
+    response = request.send()
+    factory = Factory.new()
+    @bills = factory.bills(response)
   end
 
 end
