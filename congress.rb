@@ -59,5 +59,15 @@ class Congress
     factory = Factory.new()
     @bills = factory.bills(response)
   end
+
+  #loading bills based on bill(law) type
+  def load_bills_type(bill_type)
+    params = {'enacted.law_type' => bill_type}
+    params['order'] = 'history.enacted_at'
+    request = Request.new('bills',params)
+    response = request.send()
+    factory = Factory.new()
+    @bills = factory.bills(response)
+  end
   
 end
