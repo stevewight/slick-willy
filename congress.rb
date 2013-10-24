@@ -69,5 +69,13 @@ class Congress
     factory = Factory.new()
     @bills = factory.bills(response)
   end
+
+  def load_bills_party(party)
+    params = {'sponsor.party' => party}
+    request = Request.new('bills',params)
+    response = request.send()
+    factory = Factory.new()
+    @bills = factory.bills(response)
+  end
   
 end
