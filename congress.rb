@@ -63,10 +63,15 @@ class Congress
   #loads bills based on sponsored party
   def load_bills_party(party)
     params = {'sponsor.party' => party}
-    request = Request.new('bills',params)
+    @bills = process('bills', params)
+  end
+
+  def process(path, params)
+    request = Request.new(path, params)
     response = request.send()
+    puts response.class
     factory = Factory.new()
-    @bills = factory.bills(response)
+    factory.send(path, response)
   end
   
 end
