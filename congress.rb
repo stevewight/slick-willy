@@ -13,20 +13,15 @@ class Congress
   #loads all the current legislators
   def load_legislators()
     params = {'per_page' => 'all'}
-    request = Request.new('legislators',params)
-    response = request.send()
-    factory = Factory.new()
-    @legislators = factory.legislators(response)
+    @legislators = process('legislators', 'legislators', params)
   end
 
   #loads all the legislators for given zip code
   def load_legislators_zip(zip_code)
     params = {'per_page' => 'all'}
     params['zip'] = zip_code
-    request = Request.new('legislators/locate',params)
-    response = request.send()
-    factory = Factory.new()
-    @legislators = factory.legislators(response)
+    path = 'legislators/locate'
+    @legislators = process('legislators', path, params)
   end
 
   #loads all legislators for given lat/lng location
@@ -34,44 +29,36 @@ class Congress
     params = {'per_page' => 'all'}
     params['latitude'] = location['latitude']
     params['longitude'] = location['longitude']
-    request = Request.new('legislators/locate',params)
-    response = request.send()
-    factory = Factory.new()
-    @legislators = factory.legislators(response)
+    path = 'legislators/locate'
+    @legislators = process('legislators', path, params)
   end
 
   #loads active bills orderd by recent activity
   def load_bills()
     params = {'history.active' => true}
     params['order'] = 'last_action_at'
-    request = Request.new('bills',params)
-    response = request.send()
-    factory = Factory.new()
-    @bills = factory.bills(response)
+    @bills = process('bills', 'bills', params)
   end
 
   #loads bills enacted by given congress(#)
   def load_bills_enacted(congress=nil)
     params = {'congress' => congress}
     params['history.enacted'] = true
-    request = Request.new('bills',params)
-    response = request.send()
-    factory = Factory.new()
-    @bills = factory.bills(response)
+    @bills = process('bills', 'bills', params)
   end
 
   #loads bills based on sponsored party
   def load_bills_party(party)
     params = {'sponsor.party' => party}
-    @bills = process('bills', params)
+    @bills = process('bills', 'bills', params)
   end
 
-  def process(path, params)
+  def process(method, path, params)
     request = Request.new(path, params)
     response = request.send()
     puts response.class
     factory = Factory.new()
-    factory.send(path, response)
+    factory.send(method, response)
   end
   
 end
