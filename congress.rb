@@ -54,9 +54,10 @@ class Congress
     @bills = process('bills', 'bills', params)
   end
 
-  def load_bills_search(query)
+  def load_bills_search(query, enacted = true)
     query = URI.escape(query)
     params = {'query' => query}
+    params['history.enacted'] = true if enacted
     @bills = process('bills', 'bills/search', params)  
   end
 
