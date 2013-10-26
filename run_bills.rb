@@ -7,7 +7,8 @@ congress = Congress.new
 #congress.load_bills_enacted(113)
 #congress.load_bills_type('hr')
 #congress.load_bills_party('D')
-congress.load_bills_search("health care", false)
+#congress.load_bills_search("health care", false)
+congress.load_bills_upcoming('house')
 
 puts "Count: #{congress.bills.size}"
 
@@ -16,8 +17,8 @@ congress.bills.each do |bill|
   puts "Chamber: #{bill['chamber']}"
   puts "Type: #{bill['bill_type']}"
   puts "URLS:"
-  puts " #{bill['urls']['congress']}"
-  puts " #{bill['urls']['govtrack']}"
-  puts " #{bill['urls']['opencongress']}"
+  #puts " #{bill['urls']['congress']}"
+  #puts " #{bill['urls']['govtrack']}"
+  #puts " #{bill['urls']['opencongress']}"
   puts "========================="
 end

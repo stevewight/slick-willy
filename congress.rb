@@ -54,11 +54,18 @@ class Congress
     @bills = process('bills', 'bills', params)
   end
 
+  #loads bills based on search query
   def load_bills_search(query, enacted = true)
     query = URI.escape(query)
     params = {'query' => query}
     params['history.enacted'] = true if enacted
     @bills = process('bills', 'bills/search', params)  
+  end
+ 
+  #loads upcoming bills (some bill data different!)
+  def load_bills_upcoming(chamber)
+    params = {'chamber' => chamber}
+    @bills = process('bills', 'upcoming_bills', params)
   end
 
   def process(method, path, params)
