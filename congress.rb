@@ -65,7 +65,7 @@ class Congress
   #loads upcoming bills (some bill data different!)
   def load_bills_upcoming(chamber)
     params = {'chamber' => chamber}
-    @bills = process('bills', 'upcoming_bills', params)
+    @bills = process('upcoming_bills', 'upcoming_bills', params)
   end
 
   def process(method, path, params)
