@@ -7,7 +7,7 @@ congress = Congress.new
 #congress.load_bills_enacted(113)
 #congress.load_bills_type('hr')
 #congress.load_bills_party('D')
-congress.load_bills_search("Health")
+congress.load_bills_search("internet porn")
 
 puts "Count: #{congress.bills.size}"
 

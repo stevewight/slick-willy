@@ -1,5 +1,6 @@
 require './request'
 require './factory'
+require 'net/http'
 
 class Congress
   attr_accessor :legislators
@@ -54,6 +55,7 @@ class Congress
   end
 
   def load_bills_search(query)
+    query = URI.escape(query)
     params = {'query' => query}
     @bills = process('bills', 'bills/search', params)  
   end
