@@ -4,9 +4,10 @@ require './congress'
 congress = Congress.new
 
 #congress.load_bills
-congress.load_bills_enacted(113)
+#congress.load_bills_enacted(113)
 #congress.load_bills_type('hr')
 #congress.load_bills_party('D')
+congress.load_bills_search("Health")
 
 puts "Count: #{congress.bills.size}"
 

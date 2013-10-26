@@ -53,6 +53,11 @@ class Congress
     @bills = process('bills', 'bills', params)
   end
 
+  def load_bills_search(query)
+    params = {'query' => query}
+    @bills = process('bills', 'bills/search', params)  
+  end
+
   def process(method, path, params)
     request = Request.new(path, params)
     response = request.send()
@@ -60,5 +65,5 @@ class Congress
     factory = Factory.new()
     factory.send(method, response)
   end
-  
+
 end
