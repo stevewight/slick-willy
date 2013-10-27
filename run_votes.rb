@@ -2,7 +2,8 @@ require './congress'
 
 congress = Congress.new
 
-congress.load_votes('house')
+#congress.load_votes('house')
+congress.load_votes_search('internet')
 puts congress.votes.count
 
 congress.votes.each do |vote|

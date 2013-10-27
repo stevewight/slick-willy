@@ -77,6 +77,12 @@ class Congress
     @votes = process('votes', 'votes', params)
   end
 
+  def load_votes_search(query)
+    query = URI.escape(query)
+    params = {'query' => query}
+    @votes = process('votes', 'votes', params)
+  end
+
   def process(method, path, params)
     request = Request.new(path, params)
     response = request.send()
