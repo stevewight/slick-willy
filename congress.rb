@@ -6,11 +6,13 @@ class Congress
   attr_accessor :legislators
   attr_accessor :bills
   attr_accessor :votes
+  attr_accessor :districts
 
   def initialize()
     @legislators = []
     @bills = []
     @votes = []
+    @districts = []
   end
 
   #loads all the current legislators
@@ -90,7 +92,13 @@ class Congress
     params = {'voter_ids' => ''} #hack parmas
     @votes = process('votes', 'votes', params)
   end
- 
+  
+  #loads districts based for given zip code
+  def load_districts_zip(zip_code)
+    params = {'zip' => zip_code}
+    @districts = process('districts', 'districts/locate', params)
+  end
+
   #process a request
   def process(method, path, params)
     request = Request.new(path, params)
