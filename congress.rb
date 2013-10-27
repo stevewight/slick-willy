@@ -76,13 +76,22 @@ class Congress
     params['order'] = 'voted_at'
     @votes = process('votes', 'votes', params)
   end
-
+  
+  #loads votes for given query string
   def load_votes_search(query)
     query = URI.escape(query)
     params = {'query' => query}
     @votes = process('votes', 'votes', params)
   end
 
+  #loads votes for given legislator id's
+  def load_votes_legislator(id)
+    id_parm = "voter_ids.#{id.to_s}"
+    params = {'voter_ids' => ''} #hack parmas
+    @votes = process('votes', 'votes', params)
+  end
+ 
+  #process a request
   def process(method, path, params)
     request = Request.new(path, params)
     response = request.send()
