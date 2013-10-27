@@ -5,10 +5,12 @@ require 'net/http'
 class Congress
   attr_accessor :legislators
   attr_accessor :bills
+  attr_accessor :votes
 
   def initialize()
     @legislators = []
     @bills = []
+    @votes = []
   end
 
   #loads all the current legislators
@@ -66,6 +68,13 @@ class Congress
   def load_bills_upcoming(chamber)
     params = {'chamber' => chamber}
     @bills = process('upcoming_bills', 'upcoming_bills', params)
+  end
+
+  #loads recent votes for given chamber
+  def load_votes(chamber)
+    params = {'chamber' => chamber}
+    params['order'] = 'voted_at'
+    @votes = process('votes', 'votes', params)
   end
 
   def process(method, path, params)

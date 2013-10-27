@@ -3,6 +3,7 @@ require 'json'
 require './legislator'
 require './bill'
 require './upcoming_bill'
+require './vote'
 
 class Factory
   attr_accessor :list
@@ -29,6 +30,13 @@ class Factory
     parsed = JSON.parse(response)
     parsed['results'].each do |item|
       @list << UpcomingBill.new(item)
+    end
+  end
+
+  def votes(response)
+    parsed = JSON.parse(response)
+    parsed['results'].each do |item|
+      @list << Vote.new(item)
     end
   end
 
