@@ -93,10 +93,17 @@ class Congress
     @votes = process('votes', 'votes', params)
   end
   
-  #loads districts based for given zip code
+  #loads districts for given zip code
   def load_districts_zip(zip_code)
     params = {'zip' => zip_code}
     @districts = process('districts', 'districts/locate', params)
+  end
+
+  #loads districts for given lat/lng location
+  def load_districts_location(location)
+    params = {'latitude' => location['latitude']}
+    params['longitude'] = location['longitude']
+    @districts = process('districts', 'districts/locate', params) 
   end
 
   #process a request
