@@ -7,6 +7,7 @@ class Congress
   attr_accessor :bills
   attr_accessor :votes
   attr_accessor :districts
+  attr_accessor :committees
 
   def initialize()
     @legislators = []
@@ -104,6 +105,13 @@ class Congress
     params = {'latitude' => location['latitude']}
     params['longitude'] = location['longitude']
     @districts = process('districts', 'districts/locate', params) 
+  end
+
+  #loads committees
+  def load_committees(chamber)
+    params = {'per_page' => 'all'}
+    params['chamber'] = chamber
+    @committees = process('committees', 'committees', params)
   end
 
   #process a request
