@@ -20,7 +20,6 @@ class Request
   end
 
   def send()
-    puts @get_path
     uri = URI(@get_path)
     response = Net::HTTP.get(uri)
   end

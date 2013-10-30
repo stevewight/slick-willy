@@ -13,10 +13,10 @@ congress.load_bills_upcoming('house')
 puts "Count: #{congress.bills.size}"
 
 congress.bills.each do |bill|
-  puts "Bill ID: #{bill['bill_id']}"
-  puts "Chamber: #{bill['chamber']}"
-  puts "Range: #{bill['range']}"
-  puts "SrcType: #{bill['source_type']}"
+  puts "Bill ID: #{bill.bill_id}"
+  puts "Chamber: #{bill.chamber}"
+  puts "Range: #{bill.range}"
+  puts "SrcType: #{bill.source_type}"
 #  puts "Type: #{bill['bill_type']}"
   #puts "URLS:"
   #puts " #{bill['urls']['congress']}"

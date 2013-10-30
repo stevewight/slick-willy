@@ -14,6 +14,7 @@ class Congress
     @bills = []
     @votes = []
     @districts = []
+    @committees = []
   end
 
   #loads all the current legislators
@@ -124,7 +125,6 @@ class Congress
   def process(method, path, params)
     request = Request.new(path, params)
     response = request.send()
-    puts response.class
     factory = Factory.new()
     factory.send(method, response)
   end

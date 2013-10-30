@@ -19,6 +19,7 @@ class Factory
     parsed['results'].each do |item|
       @list << Legislator.new(item)     
     end
+    @list
   end
 
   def bills(response)
@@ -26,6 +27,7 @@ class Factory
     parsed['results'].each do |item|
       @list << Bill.new(item)
     end
+    @list
   end
 
   def upcoming_bills(response)
@@ -33,6 +35,7 @@ class Factory
     parsed['results'].each do |item|
       @list << UpcomingBill.new(item)
     end
+    @list
   end
 
   def votes(response)
@@ -40,6 +43,7 @@ class Factory
     parsed['results'].each do |item|
       @list << Vote.new(item)
     end
+    @list
   end
 
   def districts(response)
@@ -47,6 +51,7 @@ class Factory
     parsed['results'].each do |item|
       @list << District.new(item)
     end
+    @list
   end
 
   def committees(response)
@@ -54,6 +59,7 @@ class Factory
     parsed['results'].each do |item|
       @list << Committee.new(item)
     end
+    @list
   end
 
 end

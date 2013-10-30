@@ -8,7 +8,7 @@ location = {"latitude"=>"37.6860","longitude"=>"-122.402"}
 congress.load_districts_location(location)
 
 congress.districts.each do |district|
-  puts district['state']
-  puts district['district']
+  puts district.state
+  puts district.number
   puts '------------------'
 end
