@@ -121,6 +121,11 @@ class Congress
     @committees = process('committees', 'committees', params)
   end
 
+  def load_subcommittees(parent_id)
+    params = {'parent_committee_id' => parent_id}
+    @committees = process('committees', 'committees', params)
+  end
+
   #process a request
   def process(method, path, params)
     request = Request.new(path, params)
