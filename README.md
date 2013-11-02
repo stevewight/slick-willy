@@ -11,11 +11,13 @@ require './congress'
 
 congress = Congress.new
 congress.load_legislators()
-contress.legislatros.each do |legislator|
+congress.legislatros.each do |legislator|
   puts "#{legislator.first_name} #{legislator.last_name}"
 end
 
 `````
+
+The above code creates a new instance of Congress and loads all of the current law makers (both house and senate)
 
 <p>span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
 
