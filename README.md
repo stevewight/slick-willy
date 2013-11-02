@@ -17,9 +17,9 @@ end
 
 `````
 
-The above code creates a new instance of Congress and loads all of the current law makers (both house and senate)
+The above code creates a new instance of Congress and loads all of the current law makers (both house and senate).  Then iterates through the internal legislators array printing the name to console.
 
-<p>span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
+<p><span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
 
 `````ruby
 API_KEY = "THIS_IS_WHERE_YOUR_PERSONAL_API_KEY_GOES"
