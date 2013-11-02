@@ -30,6 +30,18 @@ congress.bills.each do |bill|
 end
 `````
 
+<h3>Loading Recent Votes for a Given Chamber</h3>
+`````ruby
+require './congress'
+
+congress = Congress.new
+congress.load_votes('house')
+congress.votes.each do |vote|
+  puts "Bill ID: #{vote.bill_id}"
+  puts "Result: #{vote.result}"
+end
+`````
+
 <p><span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
 
 `````ruby
