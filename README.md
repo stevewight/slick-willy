@@ -54,6 +54,18 @@ congress.districts.each do |district|
 end
 `````
 
+<h3>Loading Committees for a Given Chamber</h3>
+`````ruby
+requre './congress'
+
+congress = Congress.new
+congress.load_committees('house')
+congress.committees.each do |committee|
+  puts "Name: #{committee.name}"
+  puts "ID: #{committee.committee_id}"
+end
+`````
+
 <p><span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
 
 `````ruby
