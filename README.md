@@ -42,6 +42,18 @@ congress.votes.each do |vote|
 end
 `````
 
+<h3>Loading Districts for Given Zip Code</h3>
+`````ruby
+require './congress'
+
+congress = Congress.new
+congress.load_districts_zip('94005')
+congress.districts.each do |district|
+  puts "State: #{district.state}"
+  puts "Number: #{district.number}"
+end
+`````
+
 <p><span>note:</span>You must sign up for a free api key at <a href="http://sunlightfoundation.com/api/">Sunlight Foundation</a> and place it in a file (you must create) called config.rb.  Your config.rb file should look like this:</p>
 
 `````ruby
