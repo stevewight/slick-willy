@@ -4,7 +4,17 @@ slick-willy
 Better understanding United States law makers through data
 
 <h2>Usage</h2>
-<p>To see a sample use of accessing the Congress API execute any of the run scripts</p>
+<p>To see a sample use of accessing the Congress API execute any of the run scripts:</p>
+````` bash
+ruby run.rb
+`````
+Other run scripts:
+<ul>
+  <li>run_bills.rb</li>
+  <li>run_committees.rb</li>
+  <li>run_votes.rb</li>
+  <li>run_districts.rb</li>
+</ul>
 
 <h3>Loading All Current Law Makers</h3>
 `````ruby
