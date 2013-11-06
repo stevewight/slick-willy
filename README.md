@@ -6,7 +6,7 @@ Better understanding United States law makers through data
 <h2>Usage</h2>
 <p>To see a sample use of accessing the Congress API execute any of the run scripts:</p>
 ````` bash
-ruby run.rb
+ruby run_legislators.rb
 `````
 Other run scripts:
 <ul>
@@ -16,7 +16,7 @@ Other run scripts:
   <li>run_districts.rb</li>
 </ul>
 
-<h3>Loading All Current Law Makers</h3>
+<h3>Loading All Current Legislators</h3>
 `````ruby
 require './congress'
 
